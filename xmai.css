@@ -1,0 +1,193 @@
+#slider {
+    height: 400px; /* Tăng chiều cao để hiển thị ảnh tốt hơn */
+    position: relative;
+    margin: 20px auto; /* Thêm margin top/bottom */
+    width: 60%; /* Tăng width để hiển thị ảnh lớn hơn */
+    max-width: 800px; /* Giới hạn kích thước tối đa */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Chuyển sang sắp xếp dọc */
+    justify-content: center;
+    align-items: center;
+    background: antiquewhite; /* Thêm màu nền nhẹ */
+    border-radius: 10px; /* Bo góc */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Thêm bóng đổ nhẹ */
+}
+
+.ratio {
+    width: 80%; /* Tăng kích thước vùng chứa ảnh */
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 10px 0;
+}
+
+.ratio img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    position: absolute;
+    display: none;
+    transition: all 0.3s ease; /* Thêm hiệu ứng chuyển đổi */
+}
+
+.ratio img.active {
+    display: block;
+    animation: fadeIn 0.5s; /* Thêm hiệu ứng fade in */
+}
+
+h2 {
+    font-weight: 500; /* Tăng độ đậm chữ */
+    font-size: 24px; /* Tăng kích thước chữ */
+    text-align: center;
+    margin: 15px 0;
+    color: #333;
+}
+
+.nut_bam {
+    height: auto; /* Để height tự động theo content */
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Giảm khoảng cách giữa các nút */
+    margin-top: 10px;
+}
+
+.button1 {
+    background-color: #4CAF50; /* Màu xanh đẹp hơn */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.button2 {
+    background-color: #f44336; /* Màu đỏ đẹp hơn */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Thiết lập kích thước nút mặc định */
+.nut_bam button {
+    transition: all 0.3s ease; /* Hiệu ứng mượt */
+    font-size: 16px; /* Kích thước chữ mặc định */
+    padding: 10px 20px; /* Padding mặc định */
+    width: 150px; /* Chiều rộng mặc định */
+    height: 60px; /* Chiều cao mặc định */
+  }
+  
+
+/* Hiệu ứng hover cho buttons */
+.button1:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+.button2:hover {
+    background-color: #da190b;
+    transform: translateY(-2px);
+    cursor: pointer;
+}
+
+
+/* Hiệu ứng fade in cho ảnh */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive */
+@media only screen and (max-width: 768px) {
+    #slider {
+        width: 90%;
+        height: 300px;
+    }
+
+    .ratio {
+        width: 90%;
+        height: 70%;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .nut_bam {
+        padding: 10px 0;
+    }
+
+    .button1, .button2 {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #slider {
+        height: 250px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .button1, .button2 {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+}
+/* Modal ẩn mặc định */
+#modal.hidden {
+    display: none;
+  }
+  .hidden {
+    display: none;
+  }
+  
+  /* Modal hiển thị giữa màn hình */
+  #modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Hiệu ứng nền mờ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  /* Nội dung của modal */
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Nút đóng */
+  #close-modal {
+    margin-top: 10px;
+    padding: 5px 15px;
+    border: none;
+    background-color: #f44336;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #close-modal:hover {
+    background-color: #d32f2f;
+  }
+  
